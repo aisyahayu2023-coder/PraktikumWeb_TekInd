@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<header>
+        <h1>Laporan Inspeksi Kualitas</h1>
+        <p>Formulir pencatatan hasil inspeksi kualitas produk</p>
+        <hr>
+    </header>
+
+    <section>
+        <form action="" method="post">
+
+            <!-- ID Produk -->
+            <label for="id_produk">ID Produk:</label><br>
+            <input type="text" id="id_produk" name="id_produk" placeholder="Masukkan ID Produk" required>
+            <br><br>
+
+            <!-- Nama Inspektur -->
+            <label for="nama_inspektur">Nama Inspektur:</label><br>
+            <input type="text" id="nama_inspektur" name="nama_inspektur" placeholder="Masukkan Nama Inspektur" required>
+            <br><br>
+
+            <!-- Jenis Cacat -->
+            <label>Jenis Cacat:</label><br>
+            <input type="radio" id="geometri" name="jenis_cacat" value="Geometri" required>
+            <label for="geometri">Geometri</label><br>
+
+            <input type="radio" id="permukaan" name="jenis_cacat" value="Permukaan">
+            <label for="permukaan">Permukaan</label><br>
+
+            <input type="radio" id="fungsional" name="jenis_cacat" value="Fungsional">
+            <label for="fungsional">Fungsional</label>
+            <br><br>
+
+            <!-- Jumlah Cacat -->
+            <label for="jumlah_cacat">Jumlah Cacat:</label><br>
+            <input type="number" id="jumlah_cacat" name="jumlah_cacat" min="0" placeholder="Masukkan jumlah cacat">
+            <br><br>
+
+            <!-- Foto Produk -->
+            <label for="foto_produk">Foto Produk:</label><br>
+            <input type="file" id="foto_produk" name="foto_produk">
+            <br><br>
+
+            <!-- Tombol Submit -->
+            <button type="submit">Kirim Laporan</button>
+
+        </form>
+    </section>
+, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
