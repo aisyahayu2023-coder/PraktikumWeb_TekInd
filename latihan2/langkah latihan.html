@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> 
+    <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<header>
+     <h1>Profil Mesin CNC-01</h1> 
+    <hr> 
+</header>
+<section>
+    <h2>Spesifikasi Teknis</h2> 
+    <ul> 
+        <li><strong>Merk:</strong> Yamazaki Mazak</li> 
+        <li><strong>Kapasitas:</strong> 500 unit/hari</li> 
+        <li><strong>Status:</strong> <span style="color: green;">Operasional</span></li> 
+    </ul> 
+</section>
+    <h2>Jadwal Pemeliharaan</h2> 
+    <table border="1" cellpadding="10"> 
+        <thead> 
+            <tr> 
+                <th>Tanggal</th> 
+                <th>Jenis Perawatan</th> 
+                <th>Penanggung Jawab</th> 
+                <th>Status</th> 
+            </tr> 
+        </thead> 
+        <tbody> 
+            <tr> 
+                <td>12 Jan 2024</td> 
+                <td>Penggantian Oli</td> 
+                <td>Teknisi A</td> 
+                <td>Selesai</td>
+            </tr> 
+            <tr> 
+                <td>15 Feb 2024</td> 
+                <td>Kalibrasi Presisi</td> 
+                <td>Teknisi B</td> 
+                <td>Pending</td>
+            </tr> 
+        </tbody> 
+    </table> 
+    <hr> 
+        <h2>Input Data Harian</h2> 
+        <form action=""> 
+            <label for="tanggal">Tanggal:</label><br> 
+            <input type="date" id="tanggal" name="tanggal" required><br><br> 
+            <label for="shift">Shift Kerja:</label><br> 
+            <select id="shift" name="shift"> 
+                <option value="Pagi">Pagi (08:00 - 16:00)</option> 
+                <option value="Siang">Siang (16:00 - 24:00)</option> 
+                <option value="Malam">Malam (00:00 - 08:00)</option> 
+            </select><br><br> 
+
+            <label for="jumlah">Jumlah Produksi (Unit):</label><br> 
+            <input type="number" id="jumlah" name="jumlah" min="0" max="600" placeholder="Masukkan 
+jumlah..."><br><br> 
+
+            <label for="catatan">Catatan Kerusakan:</label><br> 
+            <textarea id="catatan" name="catatan" rows="4" cols="50" 
+placeholder="Deskripsikan jika ada kendala..."></textarea><br><br> 
+
+            <button type="submit">Simpan Data</button> 
+        </form>
+</body>
+</html>

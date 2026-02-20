@@ -1,0 +1,123 @@
+/* Reset dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.author {
+    font-size: 16px;   /* lebih kecil */
+    font-weight: normal;
+    color: #333;
+}
+
+/* Background halaman */
+body {
+    background-color: #e5e5e5;
+    padding: 30px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #555;
+    font-weight: bold;
+}
+
+/* Container utama */
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #f0f0f0; /* abu muda seperti gambar */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Label */
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Input */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* File input */
+input[type="file"] {
+    margin-top: 5px;
+}
+
+/* Radio group */
+.radio-group {
+    margin-top: 5px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+/* Supaya radio tidak ikut width 100% */
+.radio-group input[type="radio"] {
+    width: auto;
+}
+
+/* Tombol umum */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Tombol submit hijau */
+.submit-btn {
+    background-color: #2ea043;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #248a36;
+}
+
+/* Tombol reset merah sesuai soal */
+.reset-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #b02a37;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+}
