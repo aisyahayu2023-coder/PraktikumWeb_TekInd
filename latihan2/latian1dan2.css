@@ -97,3 +97,8 @@ background-color: #219150; /* Hijau lebih gelap saat hover */
     padding:20px;
     border-radius: 15px;
 }
+.author {
+    font-size: 16px;   /* lebih kecil */
+    font-weight: normal;
+    color: #333;
+}
