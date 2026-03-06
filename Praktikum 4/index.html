@@ -1,0 +1,137 @@
+<!DOCTYPE html> 
+<html lang="id"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sistem Monitoring Produksi</title> 
+    <!-- Bootstrap CSS CDN --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+rel="stylesheet"> 
+    <!-- Custom CSS kita tetap di bawah agar bisa menimpa style bootstrap jika perlu --> 
+    <link rel="stylesheet" href="style.css">  
+</head> 
+<header class="text-center mt-3">
+    <p class="author">Oleh: Aisyah Ayu Salsabila 23051430001</p>
+</header>
+<body> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+  <div class="container-fluid"> 
+    <a class="navbar-brand" href="">TekInd Systems</a> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  
+data-bs-target="#navbarNav"> 
+      <span class="navbar-toggler-icon"></span> 
+    </button> 
+    <div class="collapse navbar-collapse" id="navbarNav"> 
+      <ul class="navbar-nav"> 
+        <li class="nav-item"> 
+          <a class="nav-link active" href="">Dashboard</a> 
+        </li> 
+        <li class="nav-item"> 
+          <a class="nav-link" href="">Input Produksi</a> 
+        </li> 
+        <li class="nav-item"> 
+          <a class="nav-link" href="">Inventori</a> 
+        </li> 
+      </ul> 
+    </div> 
+  </div> 
+</nav> 
+<div class="container mt-4"> 
+    <!-- Row 1: KPI Cards (Menggunakan Grid System) --> 
+    <div class="row mb-4"> 
+        <!-- Kolom lebar 4 (dari 12) --> 
+        <div class="col-md-4"> 
+            <div class="card text-white bg-primary mb-3"> 
+                <div class="card-header">Total Produksi</div> 
+                <div class="card-body"> 
+                    <h5 class="card-title">1,250 Unit</h5> 
+                    <p class="card-text">Target Harian: 1,200 Unit</p> 
+                </div> 
+            </div> 
+        </div> 
+        <!-- Kolom lebar 4 --> 
+        <div class="col-md-4"> 
+            <div class="card text-white bg-success mb-3"> 
+                <div class="card-header">Efisiensi Mesin</div> 
+                <div class="card-body"> 
+                    <h5 class="card-title">92%</h5> 
+                    <p class="card-text">Status: Optimal</p> 
+                </div> 
+            </div> 
+        </div> 
+        <!-- Kolom lebar 4 --> 
+        <div class="col-md-4"> 
+            <div class="card text-white bg-warning mb-3"> 
+                <div class="card-header">Reject Rate</div> 
+                <div class="card-body"> 
+                    <h5 class="card-title">1.5%</h5> 
+                    <p class="card-text">Perlu perhatian shift malam</p> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+  
+    <!-- Row 2: Tabel Data --> 
+    <div class="row"> 
+        <div class="col-12"> 
+            <h3>Data Log Produksi Real-time</h3> 
+            <table class="table table-striped table-hover"> 
+                <thead class="table-dark"> 
+                    <tr> 
+                        <th>Waktu</th> 
+                        <th>Mesin</th> 
+                        <th>Produk</th> 
+                        <th>Jumlah</th> 
+                        <th>Status</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <tr> 
+                        <td>08:00</td> 
+                        <td>CNC-01</td> 
+                        <td>Part A-12</td> 
+                        <td>50</td> 
+                        <td><span class="badge bg-success">OK</span></td> 
+                    </tr> 
+                    <tr> 
+                        <td>08:15</td> 
+                        <td>CNC-02</td> 
+                        <td>Part B-05</td> 
+                        <td>45</td> 
+                        <td><span class="badge bg-danger">Error</span></td> 
+                    </tr> 
+                </tbody> 
+            </table> 
+        </div> 
+    </div> 
+</div>
+
+    <h2>Form Input Produksi Manual</h2> 
+<form> 
+<div class="mb-3"> 
+<label for="kodeMesin" class="form-label">Kode Mesin</label> 
+<input type="text" class="form-control" id="kodeMesin" placeholder="Contoh: 
+CNC-01"> 
+</div> 
+<div class="mb-3"> 
+<label for="shiftSelect" class="form-label">Pilih Shift</label> 
+<select class="form-select" id="shiftSelect"> 
+<option selected>Pilih...</option> 
+<option value="1">Shift 1 (Pagi)</option> 
+<option value="2">Shift 2 (Siang)</option> 
+<option value="3">Shift 3 (Malam)</option> 
+</select> 
+</div> 
+<div class="mb-3"> 
+<label for="jumlahProduksi" class="form-label">Jumlah Produksi</label> 
+<input type="number" class="form-control" id="jumlahProduksi"> 
+</div> 
+<button type="submit" class="btn btn-primary">Kirim Data</button> 
+</form> 
+</div> 
+    <script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> 
+</script>
+`<script src="script copy 4.js"></script>` 
+</body> 
+</html>

@@ -69,3 +69,17 @@ switch (kodeShift) {
     default:
         console.log("Shift Tidak Valid");
 }
+let biayaBahanBaku = 500000;
+let biayaTenagaKerja = 300000;
+let biayaOverhead = 200000;
+let jumlahProduksi = 80;
+
+let totalPerUnit = (biayaBahanBaku + biayaTenagaKerja + biayaOverhead) / jumlahProduksi;
+
+console.log("Biaya per Unit: " + totalPerUnit);
+
+if (jumlahProduksi < 100) {
+    console.log("Biaya Tinggi (Ekonomi Skala Kecil)");
+} else {
+    console.log("Biaya Efisien");
+}

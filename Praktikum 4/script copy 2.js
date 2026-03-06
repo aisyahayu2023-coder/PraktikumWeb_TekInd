@@ -52,20 +52,3 @@ let upahLemburPerJam = 1.5 * (gajiPokok / 173);
 let totalGaji = gajiPokok + (upahLemburPerJam * jamLembur);
 
 console.log("Total Gaji: " + totalGaji);
-let kodeShift = prompt("Masukkan kode shift (1-3):");
-switch (kodeShift) {
-    case "1":
-        console.log("Shift: Pagi");
-        break;
-
-    case "2":
-        console.log("Shift: Siang");
-        break;
-
-    case "3":
-        console.log("Shift: Malam");
-        break;
-
-    default:
-        console.log("Shift Tidak Valid");
-}

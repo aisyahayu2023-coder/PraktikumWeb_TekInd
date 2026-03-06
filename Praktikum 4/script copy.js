@@ -36,6 +36,31 @@ if (jamOperasional >= batasMaksimal) {
     console.log("Status: BERJALAN NORMAL"); 
 } 
 
+console.log("--- Perhitungan Availability Mesin ---");
+
+// Data Input
+let jamKerjaPlanned = 8; // Jam
+let jamKerjaAktual = 6.5; // Jam (Ada 1.5 jam breakdown)
+
+// Perhitungan
+let availability = (jamKerjaAktual / jamKerjaPlanned) * 100;
+
+// Pembulatan 2 angka di belakang koma
+availability = availability.toFixed(2);
+
+console.log("Planned Time: " + jamKerjaPlanned + " Jam");
+console.log("Actual Time: " + jamKerjaAktual + " Jam");
+console.log("Availability: " + availability + "%");
+
+// Logika Penilaian
+if (availability >= 90) {
+    console.log("Kategori: WORLD CLASS");
+} else if (availability >= 80) {
+    console.log("Kategori: BAIK (Tetap monitor)");
+} else {
+    console.log("Kategori: BURUK (Perlu investigasi penyebab breakdown)");
+}
+
 // Input dari user
 let namaOperator = prompt("Masukkan Nama Operator:"); 
 let shiftKerja = prompt("Masukkan Shift (Pagi/Siang/Malam):"); 
@@ -44,28 +69,4 @@ if (shiftKerja === "Malam") {
     alert("Halo " + namaOperator + ", Shift malam memiliki tambahan uang makan sebesar Rp 20.000."); 
 } else { 
     alert("Halo " + namaOperator + ", Selamat bekerja. Tetap semangat!");
-}
-let gajiPokok = 5000000;
-let jamLembur = 10;
-
-let upahLemburPerJam = 1.5 * (gajiPokok / 173);
-let totalGaji = gajiPokok + (upahLemburPerJam * jamLembur);
-
-console.log("Total Gaji: " + totalGaji);
-let kodeShift = prompt("Masukkan kode shift (1-3):");
-switch (kodeShift) {
-    case "1":
-        console.log("Shift: Pagi");
-        break;
-
-    case "2":
-        console.log("Shift: Siang");
-        break;
-
-    case "3":
-        console.log("Shift: Malam");
-        break;
-
-    default:
-        console.log("Shift Tidak Valid");
 }
