@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Antrian Job Shop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="text-center mt-3">
+        <p class="author">Oleh: Aisyah Ayu Salsabila 23051430001</p>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Sistem Antrian Job Shop</h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <h5 class="mb-3">Daftar Antrian Mesin:</h5>
+                        <div id="daftarAntrian" class="mb-4"></div>
+
+                        <div class="d-grid gap-2 mb-4">
+                            <button class="btn btn-warning" onclick="jalankanProses()">
+                                Proses Antrian
+                            </button>
+                            <button class="btn btn-success" onclick="tambahDanProses()">
+                                Tambah Job Baru & Proses
+                            </button>
+                        </div>
+
+                        <div class="card bg-light mb-4">
+                            <div class="card-body">
+                                <h6 class="card-title">Tambah Job Baru (Manual)</h6>
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="idJob" placeholder="ID Job">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="namaProses" placeholder="Nama Proses">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" class="form-control" id="durasi" placeholder="Durasi">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-primary w-100" onclick="tambahJobManual()">Tambah</button>
+                                    </div>
+                                </div>
+                                <small class="text-muted">Contoh: J04, Finishing, 45</small>
+                            </div>
+                        </div>
+
+                        <div id="logContainer" style="display: none;">
+                            <hr>
+                            <h6>Log Proses:</h6>
+                            <div class="bg-light p-3 rounded" style="max-height: 150px; overflow-y: auto;" id="logProses"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- File JavaScript -->
+    <script src="proyekmini.js"></script>
+    
+    <script>
+        function updateTampilanAntrian() {
+            let html = '<div class="row">';
+            for (let i = 0; i < antrianMesin.length; i++) {
+                let job = antrianMesin[i];
+                html += `
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>${job.idJob}</h6>
+                                <p class="mb-1">Proses: ${job.namaProses}</p>
+                                <p class="mb-0">Durasi: ${job.durasi} menit</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            html += '</div>';
+            document.getElementById('daftarAntrian').innerHTML = html;
+        }
+
+        function tampilkanLog(pesan) {
+            let logDiv = document.getElementById('logProses');
+            logDiv.innerHTML += `<div>${pesan}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function bersihkanLog() {
+            document.getElementById('logProses').innerHTML = '';
+        }
+
+        function jalankanProses() {
+            bersihkanLog();
+            document.getElementById('logContainer').style.display = 'block';
+            tampilkanLog('Memulai proses antrian...');
+            prosesAntrian(antrianMesin);
+        }
+
+        function tambahDanProses() {
+            let jobBaru = { idJob: "J04", namaProses: "Finishing", durasi: 45 };
+            antrianMesin.push(jobBaru);
+            updateTampilanAntrian();
+            
+            bersihkanLog();
+            document.getElementById('logContainer').style.display = 'block';
+            tampilkanLog('Job baru ditambahkan: ' + jobBaru.idJob + ' - ' + jobBaru.namaProses);
+            tampilkanLog('Memulai proses antrian...');
+            prosesAntrian(antrianMesin);
+        }
+
+        function tambahJobManual() {
+            let idJob = document.getElementById('idJob').value.trim();
+            let namaProses = document.getElementById('namaProses').value.trim();
+            let durasi = parseInt(document.getElementById('durasi').value);
+            
+            if (idJob === '' || namaProses === '' || isNaN(durasi) || durasi <= 0) {
+                alert('Mohon isi semua field dengan benar!');
+                return;
+            }
+            
+            let jobBaru = { idJob: idJob, namaProses: namaProses, durasi: durasi };
+            antrianMesin.push(jobBaru);
+            updateTampilanAntrian();
+            
+            document.getElementById('idJob').value = '';
+            document.getElementById('namaProses').value = '';
+            document.getElementById('durasi').value = '';
+            
+            alert('Job ' + idJob + ' berhasil ditambahkan!');
+        }
+
+        window.onload = function() {
+            updateTampilanAntrian();
+            console.log('Data awal antrian:', antrianMesin);
+        };
+    </script>
+</body>
+</html>

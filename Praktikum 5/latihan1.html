@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Kalkulator Lingkaran</title> 
+    <!-- Bootstrap CSS CDN --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+</head> 
+<body>
+    <header class="text-center mt-3">
+        <p class="author">Oleh: Aisyah Ayu Salsabila 23051430001</p>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>Kalkulator Lingkaran</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Form Input -->
+                        <div class="mb-3">
+                            <label for="jariJari" class="form-label fw-bold">Jari-jari (r)</label>
+                            <input type="number" class="form-control" id="jariJari" placeholder="Masukkan jari-jari" step="any" min="0.1">
+                            <small class="text-muted">π = 3.14</small>
+                        </div>
+
+                        <!-- Tombol -->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success" onclick="hitungLuas()">Hitung Luas</button>
+                            <button class="btn btn-info" onclick="hitungKeliling()">Hitung Keliling</button>
+                            <button class="btn btn-primary" onclick="hitungSemua()">Hitung Luas & Keliling</button>
+                        </div>
+
+                        <!-- Hasil -->
+                        <div id="hasil" class="mt-4 text-center" style="display: none;">
+                            <hr>
+                            <h5>Hasil:</h5>
+                            <p id="luasHasil" class="fw-bold text-success"></p>
+                            <p id="kelilingHasil" class="fw-bold text-info"></p>
+                            <button class="btn btn-sm btn-outline-danger" onclick="resetForm()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Function dari latihan1.js -->
+    <script src="latihan1.js"></script>
+    
+    <!-- Script Sederhana -->
+    <script>
+        const phi = 3.14;
+
+        function hitungLuas() {
+            let r = parseFloat(document.getElementById('jariJari').value);
+            if (isNaN(r) || r <= 0) {
+                alert('Masukkan jari-jari yang valid!');
+                return;
+            }
+            
+            let luas = phi * r * r;
+            document.getElementById('hasil').style.display = 'block';
+            document.getElementById('luasHasil').innerHTML = 'Luas: ' + luas.toFixed(2) + ' satuan²';
+            document.getElementById('kelilingHasil').innerHTML = '';
+        }
+
+        function hitungKeliling() {
+            let r = parseFloat(document.getElementById('jariJari').value);
+            if (isNaN(r) || r <= 0) {
+                alert('Masukkan jari-jari yang valid!');
+                return;
+            }
+            
+            let keliling = 2 * phi * r;
+            document.getElementById('hasil').style.display = 'block';
+            document.getElementById('kelilingHasil').innerHTML = 'Keliling: ' + keliling.toFixed(2) + ' satuan';
+            document.getElementById('luasHasil').innerHTML = '';
+        }
+
+        function hitungSemua() {
+            let r = parseFloat(document.getElementById('jariJari').value);
+            if (isNaN(r) || r <= 0) {
+                alert('Masukkan jari-jari yang valid!');
+                return;
+            }
+            
+            let luas = phi * r * r;
+            let keliling = 2 * phi * r;
+            
+            document.getElementById('hasil').style.display = 'block';
+            document.getElementById('luasHasil').innerHTML = 'Luas: ' + luas.toFixed(2) + ' satuan²';
+            document.getElementById('kelilingHasil').innerHTML = 'Keliling: ' + keliling.toFixed(2) + ' satuan';
+        }
+
+        function resetForm() {
+            document.getElementById('jariJari').value = '';
+            document.getElementById('hasil').style.display = 'none';
+        }
+    </script>
+</body> 
+</html>

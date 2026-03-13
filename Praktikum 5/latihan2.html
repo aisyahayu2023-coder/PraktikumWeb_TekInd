@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Cacat</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="text-center mt-3">
+        <p class="author">Oleh: Aisyah Ayu Salsabila 23051430001</p>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Daftar Cacat</h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <!-- Menampilkan Data Cacat -->
+                        <h5 class="mb-3">Data Cacat:</h5>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary me-1">C-001</span>
+                            <span class="badge bg-secondary me-1">C-005</span>
+                            <span class="badge bg-secondary me-1">C-012</span>
+                            <span class="badge bg-secondary me-1">C-001</span>
+                            <span class="badge bg-secondary me-1">C-020</span>
+                        </div>
+
+                        <!-- Tombol Hitung -->
+                        <div class="d-grid mb-4">
+                            <button class="btn btn-warning btn-lg" onclick="hitungC001()">
+                                🔍 Hitung Munculnya "C-001"
+                            </button>
+                        </div>
+
+                        <!-- Hasil Perhitungan -->
+                        <div id="hasilContainer" style="display: none;">
+                            <hr>
+                            <div class="alert alert-success text-center" id="hasilMessage"></div>
+                        </div>
+
+                        <!-- Informasi Console -->
+                        <div class="alert alert-info mt-3">
+                            💡 Buka console (F12) untuk melihat hasil perhitungan
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script Latihan 2 -->
+    <script>
+        // Array daftar cacat
+        let daftarCacat = ["C-001", "C-005", "C-012", "C-001", "C-020"];
+
+        // Menampilkan array di console saat halaman dimuat
+        console.log("=== Daftar Cacat ===");
+        console.log("Data Array:", daftarCacat);
+        console.log("Panjang Array:", daftarCacat.length);
+
+        // Fungsi untuk menghitung berapa kali "C-001" muncul
+        function hitungC001() {
+            let counter = 0; // Inisialisasi counter
+            
+            console.log("\n🔍 PROSES PERHITUNGAN DIMULAI");
+            
+            // LOOP: memeriksa setiap item dalam array
+            for (let i = 0; i < daftarCacat.length; i++) {
+                console.log(`Memeriksa index ${i}: ${daftarCacat[i]}`);
+                
+                // IF: jika item sama dengan "C-001"
+                if (daftarCacat[i] === "C-001") {
+                    counter++; // COUNTER: tambah hitungan
+                    console.log(`   ✅ C-001 ditemukan! Counter sekarang: ${counter}`);
+                }
+            }
+            
+            // Menampilkan hasil di halaman
+            document.getElementById('hasilContainer').style.display = 'block';
+            document.getElementById('hasilMessage').innerHTML = 
+                `Kode "C-001" muncul sebanyak <strong>${counter} kali</strong> dalam array.`;
+            
+            // Menampilkan hasil di console
+            console.log("\n📊 HASIL AKHIR:");
+            console.log(`Kode "C-001" muncul sebanyak ${counter} kali`);
+            console.log("================================");
+        }
+    </script>
+</body>
+</html>
