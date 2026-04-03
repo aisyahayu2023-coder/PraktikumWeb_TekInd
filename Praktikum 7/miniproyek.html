@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Audit 5S - Teknik Industri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .checklist-item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .skor-badge {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .skor-rendah { background-color: #dc3545; color: white; }
+        .skor-sedang { background-color: #ffc107; color: black; }
+        .skor-tinggi { background-color: #198754; color: white; }
+    </style>
+</head>
+<header class="text-center mt-3">
+    <p class="author">Oleh: Aisyah Ayu Salsabila 23051430001</p>
+</header>
+<body class="container mt-4">
+    
+    <div class="row">
+        <!-- Kolom Kiri: Form Audit 5S -->
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">📋 Form Audit 5S</h4>
+                </div>
+                <div class="card-body">
+                    <form id="formAudit">
+                        <!-- Nama Auditor -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold"> Nama Auditor</label>
+                            <input type="text" id="auditor" class="form-control" placeholder="Masukkan nama auditor" required>
+                        </div>
+                        
+                        <hr>
+                        <h5 class="mb-3">Checklist 5S</h5>
+                        
+                        <!-- Seiri -->
+                        <div class="checklist-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="seiri" value="Seiri">
+                                <label class="form-check-label fw-bold" for="seiri">
+                                    Seiri (Ringkas) - Memisahkan barang perlu dan tidak perlu
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Seiton -->
+                        <div class="checklist-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="seiton" value="Seiton">
+                                <label class="form-check-label fw-bold" for="seiton">
+                                    Seiton (Rapi) - Menata barang sesuai posisinya
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Seiso -->
+                        <div class="checklist-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="seiso" value="Seiso">
+                                <label class="form-check-label fw-bold" for="seiso">
+                                    Seiso (Resik) - Membersihkan area kerja
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Seiketsu -->
+                        <div class="checklist-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="seiketsu" value="Seiketsu">
+                                <label class="form-check-label fw-bold" for="seiketsu">
+                                    Seiketsu (Rawat) - Menjadikan standar kebersihan sebagai kebiasaan
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Shitsuke -->
+                        <div class="checklist-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="shitsuke" value="Shitsuke">
+                                <label class="form-check-label fw-bold" for="shitsuke">
+                                    Shitsuke (Rajin) - Mematuhi prosedur secara disiplin
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <!-- Tombol Simpan -->
+                        <button type="submit" class="btn btn-primary w-100 mb-2">Simpan Hasil Audit</button>
+                        <button type="button" id="btnHapusSemua" class="btn btn-danger w-100"> Hapus Semua Riwayat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kolom Kanan: Riwayat Audit -->
+        <div class="col-md-7">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">Riwayat Audit 5S</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Statistik -->
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="alert alert-info text-center">
+                                <strong>Total Audit</strong>
+                                <h3 id="totalAudit">0</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-warning text-center">
+                                <strong>Rata-rata Skor</strong>
+                                <h3 id="rataSkor">0</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-success text-center">
+                                <strong>Terbaik</strong>
+                                <h3 id="skorTerbaik">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabel Riwayat -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Auditor</th>
+                                    <th>Checklist</th>
+                                    <th>Skor</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelBody">
+                                <tr>
+                                    <td colspan="5" class="text-center">Belum ada data audit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script_minipro.js"></script>
+</body>
+</html>

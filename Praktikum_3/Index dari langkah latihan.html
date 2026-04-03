@@ -1,19 +1,14 @@
-<!DOCTYPE html> 
-<html lang="id"> 
+<!DOCTYPE html>
+<html lang="id">
 <head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Sistem Monitoring Produksi</title> 
-    <!-- Bootstrap CSS CDN --> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem monitoring produksi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
 rel="stylesheet"> 
-    <!-- Custom CSS kita tetap di bawah agar bisa menimpa style bootstrap jika perlu --> 
-    <link rel="stylesheet" href="style.css">  
-</head> 
-<header class="text-center mt-3">
-    <p class="author">Oleh: Aisyah Ayu Salsabila 23051430001</p>
-</header>
-<body> 
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
   <div class="container-fluid"> 
     <a class="navbar-brand" href="">TekInd Systems</a> 
@@ -104,33 +99,33 @@ data-bs-target="#navbarNav">
             </table> 
         </div> 
     </div> 
-</div>
-div class="container mt-5"> 
+</div> 
+<div class="container mt-5"> 
     <h2>Form Input Produksi Manual</h2> 
-<form> 
-<div class="mb-3"> 
-<label for="kodeMesin" class="form-label">Kode Mesin</label> 
-<input type="text" class="form-control" id="kodeMesin" placeholder="Contoh: 
+    <form> 
+    <div class="mb-3"> 
+        <label for="kodeMesin" class="form-label">Kode Mesin</label> 
+        <input type="text" class="form-control" id="kodeMesin" placeholder="Contoh: 
 CNC-01"> 
+        </div> 
+        <div class="mb-3"> 
+            <label for="shiftSelect" class="form-label">Pilih Shift</label> 
+            <select class="form-select" id="shiftSelect"> 
+                <option selected>Pilih...</option> 
+                <option value="1">Shift 1 (Pagi)</option> 
+                <option value="2">Shift 2 (Siang)</option> 
+                <option value="3">Shift 3 (Malam)</option> 
+            </select> 
+        </div> 
+        <div class="mb-3"> 
+            <label for="jumlahProduksi" class="form-label">Jumlah Produksi</label> 
+            <input type="number" class="form-control" id="jumlahProduksi"> 
+        </div> 
+        <button type="submit" class="btn btn-primary">Kirim Data</button> 
+    </form> 
 </div> 
-<div class="mb-3"> 
-<label for="shiftSelect" class="form-label">Pilih Shift</label> 
-<select class="form-select" id="shiftSelect"> 
-<option selected>Pilih...</option> 
-<option value="1">Shift 1 (Pagi)</option> 
-<option value="2">Shift 2 (Siang)</option> 
-<option value="3">Shift 3 (Malam)</option> 
-</select> 
-</div> 
-<div class="mb-3"> 
-<label for="jumlahProduksi" class="form-label">Jumlah Produksi</label> 
-<input type="number" class="form-control" id="jumlahProduksi"> 
-</div> 
-<button type="submit" class="btn btn-primary">Kirim Data</button> 
-</form> 
-</div> 
-    <script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> 
-</script>
-</body> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> 
+</script> 
+`<script src="script.js"></script>`
+</body>
 </html>
