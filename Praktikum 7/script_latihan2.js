@@ -3,7 +3,7 @@ const formProduksi = document.getElementById('formProduksi');
 const tabelBody = document.getElementById('tabelBody'); 
 const btnHapusSemua = document.getElementById('btnHapusSemua'); 
 const cariOperator = document.getElementById('cariOperator');
-const btnSortirJumlah = document.getElementById('btnSortirJumlah'); // LATIHAN 2
+const btnSortirJumlah = document.getElementById('btnSortirJumlah'); 
 
 // Kunci untuk LocalStorage 
 const STORAGE_KEY = 'DATA_PRODUKSI_INDUSTRI'; 
@@ -111,7 +111,7 @@ function renderTabel(data) {
     tabelBody.innerHTML = ''; 
     
     if (data.length === 0) { 
-        tabelBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Tidak ada数据<td></tr>'; 
+        tabelBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Tidak ada<td></tr>'; 
         return; 
     } 
     
